@@ -2,6 +2,8 @@ package me.jgy.b01.service;
 
 import lombok.extern.log4j.Log4j2;
 import me.jgy.b01.dto.BoardDTO;
+import me.jgy.b01.dto.PageRequestDTO;
+import me.jgy.b01.dto.PageResponseDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,5 +41,19 @@ public class BoardServiceTests {
                 .build();
 
         boardService.modify(boardDTO);
+    }
+
+    @Test
+    public void testList() {
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
+                .type("tcw")
+                .keyword("1")
+                .page(1)
+                .size(10)
+                .build();
+
+        PageResponseDTO<BoardDTO> responseDTO = boardService.list(pageRequestDTO);
+
+        log.info(responseDTO);
     }
 }
