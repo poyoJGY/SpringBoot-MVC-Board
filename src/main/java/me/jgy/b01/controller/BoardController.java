@@ -1,5 +1,6 @@
 package me.jgy.b01.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -23,6 +24,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    @Operation(summary = "list")
     @GetMapping("/list")
     public void list(PageRequestDTO pageRequestDTO, Model model) {
 
@@ -33,11 +35,12 @@ public class BoardController {
         model.addAttribute("responseDTO", responseDTO);
     }
 
+    @Operation(summary = "registerGET")
     @GetMapping("/register")
     public void registerGET() {
 
     }
-
+    @Operation(summary = "registerPOST")
     @PostMapping("/register")
     public String registerPost(@Valid BoardDTO boardDTO, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
@@ -59,6 +62,7 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    @Operation(summary = "readGET, modifyGET")
     @GetMapping({"/read", "/modify"})
     public void read(Long bno, PageRequestDTO pageRequestDTO, Model model) {
 
@@ -69,6 +73,7 @@ public class BoardController {
         model.addAttribute("dto", boardDTO);
     }
 
+    @Operation(summary = "modifyPOST")
     @PostMapping("/modify")
     public String modify(PageRequestDTO pageRequestDTO,
                          @Valid BoardDTO boardDTO,
@@ -98,6 +103,7 @@ public class BoardController {
         return "redirect:/board/read";
     }
 
+    @Operation(summary = "remove")
     @PostMapping("/remove")
     public String remove(Long bno, RedirectAttributes redirectAttributes) {
 
