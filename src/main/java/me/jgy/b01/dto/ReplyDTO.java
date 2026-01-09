@@ -24,7 +24,7 @@ public class ReplyDTO {
     private String replyText;
 
     @NotEmpty
-    private String replyer;
+    private String replier;
 
     private LocalDateTime regDate, modDate;
 }
