@@ -133,13 +133,67 @@
         e.stopPropagation()
 
         formObj.action = `/board/modify?${link}`
+
+        // 첨부 파일을 <input type='hidden..>으로 추가
+        appendFileData()
+
+        // 삭제 대상 파일들의 삭제
+        callRemoveFiles()
+
         formObj.method = 'post'
         formObj.submit()
     }, false)
 
+    function appendFileData() {
+
+        const target = document.querySelector(".uploadHidden")
+        const uploadFiles = uploadResult.querySelectorAll("img")
+
+        let str = ''
+
+        for (let i = 0; i < uploadFiles.length; i++) {
+            const uploadFile = uploadFiles[i]
+            const imgLink = uploadFile.getAttribute("data-src")
+
+            str += `<input type='hidden' name='fileNames' value="${imgLink}">`
+        }
+
+        target.innerHTML = str;
+    }
+
+    function appendNotShownData() {
+
+        if (removeFileList.length == 0) {
+            return
+        }
+
+        const target = document.querySelector(".uploadHidden")
+        let str = ''
+
+        for (let i = 0; i < removeFileList.length; i++) {
+            const {uuid, fileName} = removeFileList[i];
+
+            str += `<input type='hidden' name='fileNames' value="${uuid}_${fileName}">`
+        }
+
+        target.innerHTML += str;
+    }
+
+    function callRemoveFiles() {
+
+        removeFileList.forEach(({uuid, fileName}) => {
+            removeFileToServer({uuid, fileName})
+        })
+    }
+
     document.querySelector(".removeBtn").addEventListener("click", function (e) {
         e.preventDefault()
         e.stopPropagation()
+
+        // 화면에 보이는 파일들을 form 태그에 추가
+        appendFileData()
+        // 화면에서 안 보이도록 처리된 파일들을 form 태그에 추가
+        appendNotShownData()
 
         formObj.action = `/board/remove`
         formObj.method = 'post'
