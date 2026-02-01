@@ -2,16 +2,13 @@ package me.jgy.b01.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Member;
-import me.jgy.b01.controller.repository.MemberRepository;
+import me.jgy.b01.domain.Member;
+import me.jgy.b01.repository.MemberRepository;
 import me.jgy.b01.security.dto.MemberSecurityDTO;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

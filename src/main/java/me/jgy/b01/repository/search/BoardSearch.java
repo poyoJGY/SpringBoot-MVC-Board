@@ -1,6 +1,6 @@
-package me.jgy.b01.controller.repository.search;
+package me.jgy.b01.repository.search;
 
-import me.jgy.b01.controller.domain.Board;
+import me.jgy.b01.domain.Board;
 import me.jgy.b01.dto.BoardListAllDTO;
 import me.jgy.b01.dto.BoardListReplyCountDTO;
 import org.springframework.data.domain.Page;

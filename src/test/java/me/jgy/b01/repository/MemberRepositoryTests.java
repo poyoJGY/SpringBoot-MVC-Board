@@ -1,9 +1,8 @@
 package me.jgy.b01.repository;
 
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Member;
-import me.jgy.b01.controller.domain.MemberRole;
-import me.jgy.b01.controller.repository.MemberRepository;
+import me.jgy.b01.domain.Member;
+import me.jgy.b01.domain.MemberRole;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -53,5 +52,14 @@ public class MemberRepositoryTests {
         log.info(member.getRoleSet());
 
         member.getRoleSet().forEach(memberRole -> log.info(memberRole.name()));
+    }
+
+    @Test
+    public void testUpdate() {
+
+        String mid = "duke407@naver.com";
+        String mpw = passwordEncoder.encode("54321");
+
+        memberRepository.updatePassword(mpw, mid);
     }
 }

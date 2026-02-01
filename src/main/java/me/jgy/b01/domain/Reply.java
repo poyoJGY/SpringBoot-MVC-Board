@@ -1,4 +1,4 @@
-package me.jgy.b01.controller.domain;
+package me.jgy.b01.domain;
 
 import jakarta.persistence.*;
 import lombok.*;

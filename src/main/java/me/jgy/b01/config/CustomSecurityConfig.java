@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import me.jgy.b01.security.CustomUserDetailsService;
 import me.jgy.b01.security.handler.Custom403Handler;
+import me.jgy.b01.security.handler.CustomSocialLoginSuccessHandler;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
@@ -31,6 +33,11 @@ public class CustomSecurityConfig {
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler authenticationSuccessHandler() {
+        return new CustomSocialLoginSuccessHandler(passwordEncoder());
     }
 
     @Bean
@@ -55,6 +62,11 @@ public class CustomSecurityConfig {
 
         http.exceptionHandling(config -> {
             config.accessDeniedHandler(accessDeniedException()); // 403
+        });
+
+        http.oauth2Login(config -> {
+            config.loginPage("/member/login")
+                    .successHandler(authenticationSuccessHandler());
         });
 
         return http.build();

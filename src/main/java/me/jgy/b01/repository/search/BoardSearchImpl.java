@@ -1,17 +1,16 @@
-package me.jgy.b01.controller.repository.search;
+package me.jgy.b01.repository.search;
 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.Tuple;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPQLQuery;
-import me.jgy.b01.controller.domain.Board;
-import me.jgy.b01.controller.domain.QBoard;
-import me.jgy.b01.controller.domain.QReply;
+import me.jgy.b01.domain.Board;
+import me.jgy.b01.domain.QBoard;
+import me.jgy.b01.domain.QReply;
 import me.jgy.b01.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 
 import java.util.List;

@@ -1,9 +1,8 @@
 package me.jgy.b01.repository;
 
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Board;
-import me.jgy.b01.controller.domain.Reply;
-import me.jgy.b01.controller.repository.ReplyRepository;
+import me.jgy.b01.domain.Board;
+import me.jgy.b01.domain.Reply;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

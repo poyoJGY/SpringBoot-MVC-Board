@@ -2,9 +2,9 @@ package me.jgy.b01.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Member;
-import me.jgy.b01.controller.domain.MemberRole;
-import me.jgy.b01.controller.repository.MemberRepository;
+import me.jgy.b01.domain.Member;
+import me.jgy.b01.domain.MemberRole;
+import me.jgy.b01.repository.MemberRepository;
 import me.jgy.b01.security.dto.MemberJoinDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.security.crypto.password.PasswordEncoder;

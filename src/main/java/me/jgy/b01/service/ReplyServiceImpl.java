@@ -2,8 +2,8 @@ package me.jgy.b01.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Reply;
-import me.jgy.b01.controller.repository.ReplyRepository;
+import me.jgy.b01.domain.Reply;
+import me.jgy.b01.repository.ReplyRepository;
 import me.jgy.b01.dto.PageRequestDTO;
 import me.jgy.b01.dto.PageResponseDTO;
 import me.jgy.b01.dto.ReplyDTO;

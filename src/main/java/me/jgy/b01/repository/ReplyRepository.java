@@ -1,11 +1,10 @@
-package me.jgy.b01.controller.repository;
+package me.jgy.b01.repository;
 
-import me.jgy.b01.controller.domain.Reply;
+import me.jgy.b01.domain.Reply;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 public interface ReplyRepository extends JpaRepository<Reply, Long> {
 

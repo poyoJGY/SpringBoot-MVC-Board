@@ -1,7 +1,7 @@
-package me.jgy.b01.controller.repository;
+package me.jgy.b01.repository;
 
-import me.jgy.b01.controller.domain.Board;
-import me.jgy.b01.controller.repository.search.BoardSearch;
+import me.jgy.b01.domain.Board;
+import me.jgy.b01.repository.search.BoardSearch;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

@@ -1,6 +1,6 @@
 package me.jgy.b01.service;
 
-import me.jgy.b01.controller.domain.Board;
+import me.jgy.b01.domain.Board;
 import me.jgy.b01.dto.*;
 
 import java.util.List;

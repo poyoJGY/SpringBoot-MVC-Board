@@ -2,10 +2,8 @@ package me.jgy.b01.repository;
 
 import jakarta.transaction.Transactional;
 import lombok.extern.log4j.Log4j2;
-import me.jgy.b01.controller.domain.Board;
-import me.jgy.b01.controller.domain.BoardImage;
-import me.jgy.b01.controller.repository.BoardRepository;
-import me.jgy.b01.controller.repository.ReplyRepository;
+import me.jgy.b01.domain.Board;
+import me.jgy.b01.domain.BoardImage;
 import me.jgy.b01.dto.BoardListAllDTO;
 import me.jgy.b01.dto.BoardListReplyCountDTO;
 import org.junit.jupiter.api.Test;
